@@ -1,0 +1,393 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/* variables */
+:root {
+
+    /* layout variables */
+    --max-desktop-width: 1440px;
+    --half-desktop-width: 720px;
+    --min-mobile-width: 375px;
+
+    /* font size */
+    --base-font-size: 16px;
+
+    /* font weights */
+    --light-weight: 400;
+    --medium-weight: 500;
+    --strong-weight: 700;
+
+    /* coloooors */
+
+    --document-background: #FAFAFA;
+
+    --progressbar-background: #f4f4f4;
+
+    --moderate-cyan: hsl(176, 50%, 47%);
+    --dark-cyan: hsl(176, 72%, 28%);
+    --black: hsl(0, 0%, 0%);
+    --dark-gray: hsl(0, 0%, 48%);
+}
+
+body, html {
+    width: 100%;
+    min-width: var(--min-mobile-width);
+    position: relative;
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Commissioner', sans-serif;
+    background-color: var(--document-background);
+}
+
+/* custom disabled styling */
+.disabled {
+    opacity: .5;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* custom disabled button version */
+.btn-disabled {
+    background-color: gray !important;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* default primary button large */
+.btn-primary-large {
+    color: #ffffff;
+    font-weight: var(--medium-weight);
+    background-color: var(--moderate-cyan);
+    padding: 1.2rem 3.5rem;
+    border-radius: 1.5rem;
+    display: block;
+    transition: background-color .2s ease-in-out;
+}
+
+.btn-primary-large:hover {
+    background-color: var(--dark-cyan);
+}
+
+/* default primary button medium */
+.btn-primary-medium {
+    color: #ffffff;
+    font-weight: var(--medium-weight);
+    background-color: var(--moderate-cyan);
+    padding: 1rem 2.5rem;
+    border-radius: 1.5rem;
+    display: inline-block;
+    transition: background-color .2s ease-in-out;
+}
+.btn-primary-medium:hover {
+    background-color: var(--dark-cyan);
+}
+
+/* custom bookmark button */
+.btn-bookmark {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btn-bookmark span {
+    padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+    display: none;
+    color: var(--black);
+    background-color: #f1f1f1;
+    border-radius: 2rem;
+    position: relative;
+    z-index: -1;
+    transform: translateX(-3rem);
+}
+
+/* Header styles */
+.header {
+    width: 100%;
+    min-height: 300px;
+    background: url('../images/image-hero-mobile.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Navigation styles */
+.nav {
+    width: 100%;
+    max-width: var(--max-desktop-width);
+    padding: 1.5rem 0;
+    background-image: linear-gradient(rgba(0,0,0,.6) 30%, transparent 70%);
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+/* Inner nav wrapper */
+.nav__inner {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation links  */
+.nav__items {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: auto;
+    background-color: #ffffff;
+    transform: translateY(100%);
+    display: none;
+    border-radius: .5rem;
+}
+
+.nav__items li {
+    padding: 1.3rem;
+}
+
+.nav__items li:not(:last-child) {
+    border-bottom: 1px solid var(--dark-gray);
+}
+
+.nav__items li a {
+    font-size: 1rem;
+    color: var(--black);
+    font-weight: var(--strong-weight);
+}
+
+/* Main content */
+/* Main content wrapper */
+.content_wrapper {
+    width: 90%;
+    max-width: var(--half-desktop-width);
+    margin: 0 auto;
+}
+
+/* Product owners ( company ) information */
+.product {
+    background-color: #ffffff;
+    position: relative;
+    padding: 3em 0 2.5em 0;
+    text-align: center;
+    transform: translateY(-25%);
+    border-radius: .5rem;
+    border: 1px solid red;
+}
+
+.product__company__logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product__description h1 {
+    font-size: 1.4rem;
+    padding: 0 1em;
+}
+
+.product__description p {
+    color: var(--dark-gray);
+    font-weight: var(--light-weight);
+    padding: 1.5em;
+}
+
+.product__cta {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Crowdfund information */
+.crowdfund {
+    background-color: #ffffff;
+    position: relative;
+    padding: 1.5em;
+    text-align: center;
+    border-radius: .5rem;
+    border: 1px solid red;
+    margin: -2rem 0 0 0;
+}
+
+.crowdfund__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.crowdfund__item:not(:last-child) {
+    margin: 0 0 1.5em 0;
+    padding: 0 0 1.5em 0;
+    position: relative;
+}
+
+/* place lines on the bottom */
+.crowdfund__item:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: .1rem;
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 1.5em);
+}
+
+.crowdfund__item h2 {
+    font-size: 2rem;
+    font-weight: var(--strong-weight);
+    padding-bottom: .2em;
+}
+
+.crowdfund__item small {
+    color: var(--dark-gray);
+}
+
+/* progress bar */
+#crowdfund_progress {
+    display: block;
+    width: 100%;
+    height: .8rem;
+    background-color: var(--progressbar-background);
+    border-radius: .5rem;
+    margin-top: 1.5em;
+}
+
+.crowdfund__progress__bar {
+    width: 80%;
+    height: inherit;
+    border-radius: inherit;
+    background-color: var(--moderate-cyan);
+}
+
+
+/* about section */
+.about {
+    background-color: #ffffff;
+    padding: 2.5em 1.5em;
+    border-radius: .5rem;
+    border: 1px solid red;
+    position: relative;
+    margin: 2.5rem 0 0 0;
+}
+
+.about h3, .about > p {
+    margin-bottom: 2em;
+}
+
+/* about item */
+.about__item {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: .5rem;
+    padding: 1.5em;
+}
+
+.about__item:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.about__item__header p {
+    color: var(--moderate-cyan);
+    font-weight: var(--medium-weight);
+    padding-top: .2em;
+}
+
+.about__item__header, .about__item__body {
+    margin: 1.5rem 0;
+}
+
+.about__item__footer > div {
+    display: flex;
+    align-items: center;
+}
+
+.about__item__footer h2 {
+    font-size: 2rem;
+}
+
+.about__item__footer span {
+    padding-left: .5rem;
+}
+
+.about__item__footer a {
+    margin-top: 2rem;
+}
+
+
+
+/* responsive magic */
+@media only screen and (min-width: 550px) {
+
+    .product__description p {
+        padding-bottom: 2.5em;
+    }
+
+    .btn-bookmark {
+        transform: translateX(3rem);
+    }
+
+    .btn-bookmark span {
+        display: block;
+    }
+
+    /* about section */
+
+    .about__item__footer, .about__item__header  {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about__item__header p {
+        padding-top: 0;
+    }
+
+    .about__item__footer a {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .header {
+        background: url('../images/image-hero-desktop.jpg');
+    }
+
+    .crowdfund {
+        margin: -1.5rem 0 0 0;
+    }
+
+    .crowdfund__inner {
+        flex-direction: initial;
+    }
+
+    .crowdfund__item:not(:last-child) {
+        margin: 0 1.5em 0 0;
+        padding: 0 1.5em 0 0;
+    }
+
+    /* place lines on the right */
+    .crowdfund__item:not(:last-child)::after {
+        width: .1rem;
+        height: 4rem;
+        background-color: rgba(0,0,0,.3);
+        position: absolute;
+        left: 135%;
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+}
